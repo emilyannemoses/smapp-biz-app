@@ -13,20 +13,21 @@ import LogIn from './LogIn'
 const Listings = (props) => {
     return (
         <div className="card-container">
-            {props.businesses.map((business, idx) => (
-                <Card key={idx} className="card">
+            {/* {console.log(props.businesses[0])} */}
+            {/* { {props.businesses.map((business, idx) => (  */}
+                <Card key={props.businesses[0].id} className="card">
                     <CardContent className="text-gray">
-                        <span>{business.name.toUpperCase()}</span>
+                        <span>{props.businesses[0].name.toUpperCase()}</span>
                         <ul>
-                        <li>Location: {business["location"]}</li>
+                        <li>Location: {props.businesses[0]["location"]}</li>
                         </ul>
                     </CardContent>
                     <Divider />
                     <CardActions style={{ color: 'mediumblue' }}>
-                        <Link to={`/business/${business.id}`}>See More Details</Link>
+                        <Link to={`/business/${props.businesses[0].id}`}>See More Details</Link>
                     </CardActions>
                 </Card>
-            ))}
+            {/* ))} } */}
         </div>
     )
 }

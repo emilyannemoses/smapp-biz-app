@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Navigation from './components/Navigation'
+import Router from './Router'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import React, { useState, createContext } from 'react'
+import store from './redux/store'
+import LogIn from './components/LogIn'
+import Listings from './components/Listings'
+
+export const LoginContext = createContext({
+  loggedIn: false,
+  setLoggedIn: () => {},
+});
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navigation />
+        <Router />
+      </BrowserRouter>
+      <LoginContext.Provider value={{ loggedIn, setLoggedIn }}>
+        {loggedIn ? (
+          <Listings />
+        ) : (
+          <LogIn />
+        )}
+      </LoginContext.Provider>
+    </Provider>
   );
 }
 

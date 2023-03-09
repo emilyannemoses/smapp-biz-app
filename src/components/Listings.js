@@ -9,11 +9,11 @@ import {
 import { Link } from 'react-router-dom'
 import LogIn from './LogIn'
 import Map from './Map'
-import MapContainer from './MapContainer'
 
 const Listings = (props) => {
     return (
         <div className="card-container">
+            <Map />
             {props.businesses.map((business, index) => (
                 <Card key={index} className="card">
                     <CardContent className="text-gray">

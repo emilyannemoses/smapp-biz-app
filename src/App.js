@@ -20,15 +20,16 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Navigation />
-        <Router />
-      </BrowserRouter>
-      <LoginContext.Provider value={{ loggedIn, setLoggedIn }}>
+        <LoginContext.Provider value={{ loggedIn, setLoggedIn }}>
         {loggedIn ? (
-          <Listings />
+          // <Listings />
+          "You're logged in"
         ) : (
           <LogIn />
         )}
       </LoginContext.Provider>
+        <Router />
+      </BrowserRouter>
     </Provider>
   );
 }

@@ -7,27 +7,25 @@ import {
     Container
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-// import businesses from '../businesses.json' // remove this
 import LogIn from './LogIn'
 
 const Listings = (props) => {
     return (
         <div className="card-container">
-            {/* {console.log(props.businesses[0])} */}
-            {/* { {props.businesses.map((business, idx) => (  */}
-                <Card key={props.businesses[0].id} className="card">
+            {props.businesses.map((business, index) => (
+                <Card key={index} className="card">
                     <CardContent className="text-gray">
-                        <span>{props.businesses[0].name.toUpperCase()}</span>
+                        <span>{business.name.toUpperCase()}</span>
                         <ul>
-                        <li>Location: {props.businesses[0]["location"]}</li>
+                        <li>Location: {business["location"]}</li>
                         </ul>
                     </CardContent>
                     <Divider />
                     <CardActions style={{ color: 'mediumblue' }}>
-                        <Link to={`/business/${props.businesses[0].id}`}>See More Details</Link>
+                        <Link to={`/business/${business.id}`}>See More Details</Link>
                     </CardActions>
                 </Card>
-            {/* ))} } */}
+            ))}
         </div>
     )
 }

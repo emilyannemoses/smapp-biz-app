@@ -8,6 +8,8 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import LogIn from './LogIn'
+import Map from './Map'
+import MapContainer from './MapContainer'
 
 const Listings = (props) => {
     return (
